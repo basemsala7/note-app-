@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="toggelCon">
+      <span id="mood" onclick="sunMoon()"></span>
+    </div>
+
+    <div class="addForm" id="form">
+      <h3>Add new node</h3>
+      <span class="close"> &#10006; </span>
+      <br />
+      <hr />
+      <label for="title"> title</label> <br /><br />
+      <input type="text" id="title" /> <br /><br />
+      <p id="titleAlt">please enter title</p>
+      <label for="discription">discription</label> <br /><br />
+      <textarea id="discription" name="discription"></textarea>
+      <p id="disAlt">please enter discription</p>
+      <button id="addBtn"><h3>Add note</h3></button>
+    </div>
+
+    <div class="wrapCards" id="wrapCards">
+      <div class="added card" id="add" onclick="createNoteFun()">
+        <p id="plus">+</p>
+        <p id="text">add new note</p>
+      </div>
+    </div>
+
+    <script src="note.js"></script>
+  </body>
+</html>

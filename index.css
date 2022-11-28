@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--body);
+}
+
+.toggelCon {
+  margin: 5px 25px 0px auto;
+  border: 1px solid gray;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: transparent;
+  height: 30px;
+  width: 70px;
+  border-radius: 25px;
+  padding: 8px 10px;
+  position: relative;
+}
+.toggelCon span {
+  display: inline-block;
+  height: 100%;
+  width: 40%;
+  background-color: #7ba79b;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 50%;
+  transition: all 0.6s;
+  top: 5px;
+}
+
+.parent {
+  border: 1px solid red;
+  font-size: 50px;
+}
+
+.wrapCards {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 35px;
+}
+.card {
+  width: 310px;
+  height: 250px;
+  border: 1px solid transparent;
+  margin: 15px 15px;
+  background-color: var(--white);
+  padding: 30px 10px;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  color: var(--fontColor);
+}
+.time {
+  border-top: 1px solid gray;
+  padding-top: 15px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.added {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+}
+#titleAlt,
+#disAlt {
+  color: red;
+  margin-left: 6px;
+  display: none;
+}
+.noteTitle {
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+.noteDis {
+  font-family: cursive;
+}
+#plus {
+  border: 3px dashed var(--mainColor);
+  padding: 35px;
+  border-radius: 50%;
+  color: var(--mainColor);
+  font-size: 52px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#text {
+  color: var(--mainColor);
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: -16px;
+  text-transform: capitalize;
+}
+.added:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.addForm {
+  position: absolute;
+  width: 400px;
+  z-index: 3;
+  background-color: var(--white);
+  left: 40%;
+  top: 8%;
+  padding: 15px;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 13px;
+  color: var(--fontColor);
+}
+.close {
+  position: absolute;
+  top: 3%;
+  right: 6%;
+  cursor: pointer;
+  color: var(--fontColor);
+}
+input,
+textarea {
+  height: 35px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 5px;
+  resize: none;
+  background-color: var(--input);
+  color: var(--fontColor);
+}
+#delete {
+  padding: auto;
+  background-color: transparent;
+  color: var(--white);
+  letter-spacing: 1px;
+  border-radius: 13px;
+  padding: -2px 15px;
+  border: 1px solid transparent;
+}
+
+#addBtn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  width: 100%;
+  color: white;
+  background-color: var(--mainColor);
+  margin-top: 19px;
+}
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+label {
+  font-size: 19px;
+  font-weight: bold;
+}
+#discription {
+  height: 140px;
+}
+@media only screen and (max-width: 800px) {
+  /* For mobile phones: */
+  .body {
+    justify-content: center;
+  }
+  .card {
+    width: 60%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body: rgba(0, 0, 0, 0.87);
+    --white: rgba(0, 0, 0, 0.3);
+    --mainColor: rgb(134, 168, 252);
+    --fontColor: white;
+    --input: rgba(0, 0, 0, 0.4);
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --body: #d3d3d3;
+    --white: white;
+    --mainColor: rgb(134, 168, 252);
+    --fontColor: black;
+    --input: white;
+  }
+}
