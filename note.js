@@ -7,24 +7,10 @@ let discriptionInput = document.getElementById("discription");
 let titleInput = document.getElementById("title");
 let titleAlt = document.getElementById("titleAlt");
 let disAlt = document.getElementById("disAlt");
-let mood = document.getElementById("mood");
-let toggelCon = document.querySelector(".toggelCon");
+let toggelCon = document.querySelector("#mood");
 let root = document.documentElement;
-let data = [];
+let datalist = [];
 let light = false;
-
-function sunMoon() {
-  light = !light;
-
-  if (light) {
-    mood.style.marginLeft = "40px";
-    changeTh();
-  } else {
-    mood.style.marginLeft = "0";
-
-    changeTh();
-  }
-}
 
 function changeTh() {
   if (light) {
@@ -69,21 +55,20 @@ addBtn.addEventListener("click", () => {
     titleAlt.style.display = "block";
     disAlt.style.display = "block";
   } else {
-    data.push(obj);
-    localStorage.setItem("data", JSON.stringify(data));
+    datalist.push(obj);
+    localStorage.setItem("data", JSON.stringify(datalist));
 
     wrapCards.innerHTML = "";
     wrapCards.innerHTML = ` <div class="added card" id="add" onclick="createNoteFun()">
   <p id="plus">+</p>
   <p id="text">add new note</p>
 </div>`;
-    data.map(
+    datalist.map(
       (ele, index) =>
         (wrapCards.innerHTML += `<div class="card ">
 <h3 class="noteTitle">${index + 1}  - ${ele.title}  </h3>
 <p class="noteDis">${ele.discription}</p>
 <div class="time"> <p>${ele.date} </p>
-
 <button id='delete' onclick="deleteNote( ${index})"><i class="fa fa-trash-o" style="font-size:48px;color:red"></i>
 </button>
 </div>
@@ -97,16 +82,17 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-if (data.length == 0) {
-  data = JSON.parse(localStorage.getItem("data"));
-  wrapCards.innerHTML = "";
-  wrapCards.innerHTML = ` <div class="added card" id="add" onclick="createNoteFun()">
+if (datalist.length == 0) {
+  datalist = JSON.parse(localStorage.getItem("data"));
+  if (datalist.length) {
+    wrapCards.innerHTML = "";
+    wrapCards.innerHTML = ` <div class="added card" id="add" onclick="createNoteFun()">
   <p id="plus">+</p>
   <p id="text">add new note</p>
 </div>`;
-  data.map(
-    (ele, index) =>
-      (wrapCards.innerHTML += `<div class="card ">
+    datalist.map(
+      (ele, index) =>
+        (wrapCards.innerHTML += `<div class="card ">
 <h3 class="noteTitle">${index + 1}  - ${ele.title}  </h3>
 <p class="noteDis">${ele.discription}</p>
 <div class="time"> <p>${ele.date} </p>
@@ -115,7 +101,8 @@ if (data.length == 0) {
 </button>
 </div>
 </div>`)
-  );
+    );
+  }
 }
 
 titleInput.onfocus = () => {
@@ -127,15 +114,15 @@ discriptionInput.onfocus = () => {
 };
 
 function deleteNote(para) {
-  data = data.filter((ele) => data.indexOf(ele) != para);
-  localStorage.setItem("data", JSON.stringify(data));
+  datalist = datalist.filter((ele) => datalist.indexOf(ele) != para);
+  localStorage.setItem("data", JSON.stringify(datalist));
 
   wrapCards.innerHTML = "";
   wrapCards.innerHTML = ` <div class="added card" id="add" onclick="createNoteFun()">
   <p id="plus">+</p>
   <p id="text">add new node</p>
 </div>`;
-  data.map(
+  datalist.map(
     (ele, index) =>
       (wrapCards.innerHTML += `<div class="card ">
       <h3 class="noteTitle">${index + 1}  - ${ele.title}  </h3>
@@ -147,6 +134,18 @@ function deleteNote(para) {
       </div>
       </div>`)
   );
+}
+function sunMoon() {
+  light = !light;
+
+  if (light) {
+    toggelCon.style.marginLeft = "40px";
+    changeTh();
+  } else {
+    toggelCon.style.marginLeft = "0";
+
+    changeTh();
+  }
 }
 
 function createNoteFun() {
