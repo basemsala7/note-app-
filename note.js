@@ -82,9 +82,8 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-if (datalist.length == 0) {
+if (localStorage.getItem("data")) {
   datalist = JSON.parse(localStorage.getItem("data"));
-  if (datalist.length) {
     wrapCards.innerHTML = "";
     wrapCards.innerHTML = ` <div class="added card" id="add" onclick="createNoteFun()">
   <p id="plus">+</p>
@@ -102,7 +101,7 @@ if (datalist.length == 0) {
 </div>
 </div>`)
     );
-  }
+  
 }
 
 titleInput.onfocus = () => {
