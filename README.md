@@ -1,7 +1,7 @@
 # note-app
 this is my  " Note app " by using javascript local storage
 try it and let me know your feedback .. ❤ <br></br>
-veiw note app : [demo ](https://zujdzhezblbpehziuviq7a.on.drv.tw/not%20app%20project/)https://zujdzhezblbpehziuviq7a.on.drv.tw/not%20app%20project/) <br></br>
+veiw note app : [demo ](https://note-app-wheat-mu.vercel.app/) <br></br>
 the main fetures in the app : 
 1. local storage
 2. dark and light mode css
